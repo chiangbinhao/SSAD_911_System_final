@@ -1,0 +1,51 @@
+<div hidden id="lat">{{ location.Lat }}</div>
+<div hidden id="lng">{{ location.Long }}</div>
+<div hidden id="reportPK">{{ report.pk }}</div>
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <span class="label label-default" id="{{ report.Priority }}label">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+        &nbsp;&nbsp;{{ report.Title }}
+    </div>
+</div>
+<div class="body-container">
+    <div class="panel-body" id="panel-form">
+        <div class="top-left">
+            <div class="left" id="date">{{ report.Datetime }}</div>
+        </div>
+        <div class="top-right">
+           <div class="right" id="operatorID">Assigned Operator ID: {{ report.Operator.username }}</div>
+        </div>
+
+        <div class="center-title">
+            <div id="title">{{ report.Title }}</div>
+        </div>
+
+        <div class="center-description">
+            <div id="description">{{ report.Description }}</div>
+        </div>
+
+        <div class="center-description">
+			<div id="radius">Incident Radius: {{ report.Radius }} metre(s)</div>
+        </div>
+
+        <div class="button-div-margin">
+                <div class="left-button">
+                    <div class="left">
+                        <form id="lo_noncrisis_button_form" method='POST' action='' enctype='multipart/form-data'>
+                            {% csrf_token %}
+                            <button id="nonCrisis" type="submit" class="btn btn-primary">Non-Crisis</button>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="right-button">
+                    <div class="right">
+                        <form id="lo_crisis_button_form" method='POST' action='' enctype='multipart/form-data'>
+                            {% csrf_token %}
+                            <button id="crisis" type="submit" class="btn btn-primary">Crisis</button>
+                        </form>
+                    </div>
+                </div>
+        </div>
+    </div>
+</div>
